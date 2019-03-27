@@ -1,0 +1,54 @@
+﻿@model Html_Helper_Exercise.Models.Registration
+
+@{
+    ViewBag.Title = "Registration";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Registration</h2>
+
+@using (Html.BeginForm("Registration", "Home", FormMethod.Post))
+{
+<table cellpadding="1" cellspacing="0">
+    <tr>
+        <th cellspan="2" align="center">Login Form</th>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(x => x.UserName)</td>
+        <td>@Html.TextBoxFor(x => x.UserName)</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(x => x.PassWord)</td>
+        <td>@Html.PasswordFor(x => x.PassWord)</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(x => x.ConfirmPassword)</td>
+        <td>@Html.PasswordFor(x => x.ConfirmPassword)</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(x => x.Gender)</td>
+        <td>
+            @Html.RadioButtonFor(x => x.Gender, "Male", new { id = "Male" }) "Male" &nbsp;&nbsp;
+            @Html.RadioButtonFor(x => x.Gender, "Male", new { id = "Female" })Female
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">@Html.CheckBoxFor(x=>x.Terms) &nbsp; Terms & Conditions Agree </td>
+    </tr>
+    <tr>
+        <td colspan="2"><input type="submit" value="Login" /></td>
+    </tr>
+
+</table>
+
+@*Form Ends Here
+    PassWord
+    Confirm Password
+    Gender
+    Terms
+*@
+}
+
+
+
+
