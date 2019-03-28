@@ -9,31 +9,42 @@
 
 @using (Html.BeginForm("Registration", "Home", FormMethod.Post))
 {
+    @Html.ValidationSummary(false, "", new { @class="text-danger"})
 <table cellpadding="1" cellspacing="0">
     <tr>
         <th cellspan="2" align="center">Login Form</th>
     </tr>
     <tr>
         <td>@Html.LabelFor(x => x.UserName)</td>
-        <td>@Html.TextBoxFor(x => x.UserName)</td>
+        <td>@Html.TextBoxFor(x => x.UserName)
+            @Html.ValidationMessageFor(x => x.UserName)
+        </td>
+        
     </tr>
     <tr>
-        <td>@Html.LabelFor(x => x.PassWord)</td>
-        <td>@Html.PasswordFor(x => x.PassWord)</td>
+        <td>@Html.LabelFor(x => x.Password)</td>
+        <td>@Html.PasswordFor(x => x.Password) @Html.ValidationMessageFor(x => x.Password)</td>
+        
     </tr>
     <tr>
         <td>@Html.LabelFor(x => x.ConfirmPassword)</td>
-        <td>@Html.PasswordFor(x => x.ConfirmPassword)</td>
+        <td>@Html.PasswordFor(x => x.ConfirmPassword)
+            @Html.ValidationMessageFor(x => x.ConfirmPassword)
+        </td>
+        
     </tr>
     <tr>
         <td>@Html.LabelFor(x => x.Gender)</td>
         <td>
             @Html.RadioButtonFor(x => x.Gender, "Male", new { id = "Male" }) "Male" &nbsp;&nbsp;
             @Html.RadioButtonFor(x => x.Gender, "Male", new { id = "Female" })Female
+            @Html.ValidationMessageFor(x => x.Gender)
         </td>
+        
     </tr>
     <tr>
-        <td colspan="2">@Html.CheckBoxFor(x=>x.Terms) &nbsp; Terms & Conditions Agree </td>
+        <td colspan="2">@Html.CheckBoxFor(x => x.Terms) &nbsp;@Html.LabelFor(x => x.Terms) @Html.ValidationMessageFor(x => x.Terms)</td>
+      
     </tr>
     <tr>
         <td colspan="2"><input type="submit" value="Login" /></td>

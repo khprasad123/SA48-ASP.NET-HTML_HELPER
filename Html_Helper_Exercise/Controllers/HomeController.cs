@@ -34,7 +34,7 @@ namespace Html_Helper_Exercise.Controllers
         public ActionResult Registration(Registration  temp)
         {
             //For using the fetched value 
-            var Password = temp.PassWord;
+            var Password = temp.Password;
             var ConfirmPassword = temp.ConfirmPassword;
             var UserName = temp.UserName;
             var Terms = temp.Terms;
